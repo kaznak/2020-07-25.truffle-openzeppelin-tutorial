@@ -4,12 +4,10 @@ pragma solidity ^0.6.9;
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
 contract TutorialToken is ERC20 {
-    string public name = "TutorialToken";
-    string public symbol = "TT";
-    uint8 public decimals = 2;
     uint public INITIAL_SUPPLY = 12000;
 
-    constructor() public {
-    _mint(msg.sender, INITIAL_SUPPLY);
+    constructor() ERC20("TutorialToken", "TT") public {
+        _setupDecimals(2);
+        _mint(msg.sender, INITIAL_SUPPLY);
     }
 }
